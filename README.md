@@ -1,4 +1,4 @@
-# MHtoolX v2.2.2 / 多功能交互式数学工具
+# MHtoolX v2.3.0 / 多功能交互式数学工具
 
 [English](#english) | [中文](#chinese)
 
@@ -8,7 +8,7 @@
 
 ### 项目简介
 
-MHtoolX v2.2.2 是一个基于 Python 的命令行交互式数学计算工具，支持34+种数学功能，涵盖从基础算术到高级数学模型的广泛领域。该工具提供 **交互式菜单导航** 与 **结果导出功能**，适合教学、科研及学习用途。
+MHtoolX v2.3.0 是一个基于 Python 的命令行交互式数学计算工具，支持34+种数学功能，涵盖从基础算术到高级数学模型的广泛领域。该工具提供 **交互式菜单导航** 与 **结果导出功能**，适合教学、科研及学习用途。
 
 ### 功能特性
 
@@ -123,12 +123,12 @@ curses/msvcrt
 
 #### 1️⃣ 下载程序
 
-下载 `MHtoolX-v2.2.2.py` 和 `translation.json` 文件
+下载 `MHtoolX-v2.3.0.py` 和 `translation.json` 文件
 
 #### 2️⃣ 运行程序
 
 ```bash
-python MHtoolX-v2.2.2.py
+python MHtoolX-v2.3.0.py
 ```
 
 #### 3️⃣ 使用交互命令
@@ -218,7 +218,7 @@ Language changed / 语言已更改
 
 ```
 .
-├── MHtoolX-v2.2.2.py    # 主程序文件
+├── MHtoolX-v2.3.0.py    # 主程序文件
 ├── translation.json      # 语言翻译配置
 ├── config.json           # 程序配置（自动生成）
 ├── history.json          # 操作历史（自动生成）
@@ -233,10 +233,17 @@ MIT License © 2025 QU QI
 ### 作者
 
 **作者:** QU QI  
-**版本:** MHtoolX v2.2.2  
-**发布日期:** 20251108
+**版本:** MHtoolX v2.3.0  
+**发布日期:** 20251206
 
 ### 更新日志
+
+#### v2.3.0 主要更新 (错误修复与功能完善):
+
+  - **拼写错误修复**: 修正了功能菜单中 "language" 命令的拼写错误（从 "languange" 修正为 "language"）
+  - **彩蛋功能**: 新增隐藏命令 "truth"，输入后显示二进制哲学答案 "101010"
+  - **翻译优化**: 功能25（计算任意三角形面积）中，三边计算模式的精度提示现在使用专门的翻译键 "25_acc_recommendation"，提供更准确的翻译
+  - **图像保存配置修复**: 修复了首次启动时选择禁用图像保存功能时写入错误配置文件的问题（从写入 `picture_choice.json` 修正为写入 `config.json`）
 
 #### v2.2.2 主要更新 (错误修复):
 
@@ -277,7 +284,7 @@ MIT License © 2025 QU QI
 
 ### Project Introduction
 
-MHtoolX v2.2.2 is a comprehensive Python-based command-line interactive mathematical calculation tool supporting 34+ mathematical functions, covering a wide range from basic arithmetic to advanced mathematical models. The tool provides **interactive menu navigation** and **result export functionality**, suitable for teaching, research, and learning purposes.
+MHtoolX v2.3.0 is a comprehensive Python-based command-line interactive mathematical calculation tool supporting 34+ mathematical functions, covering a wide range from basic arithmetic to advanced mathematical models. The tool provides **interactive menu navigation** and **result export functionality**, suitable for teaching, research, and learning purposes.
 
 ### Features
 
@@ -392,12 +399,12 @@ curses/msvcrt
 
 #### 1️⃣ Download Program
 
-Download `MHtoolX-v2.2.2.py` and `translation.json` files
+Download `MHtoolX-v2.3.0.py` and `translation.json` files
 
 #### 2️⃣ Run Program
 
 ```bash
-python MHtoolX-v2.2.2.py
+python MHtoolX-v2.3.0.py
 ```
 
 #### 3️⃣ Use Interactive Commands
@@ -487,7 +494,7 @@ Language changed / 语言已更改
 
 ```
 .
-├── MHtoolX-v2.2.2.py    # Main program file
+├── MHtoolX-v2.3.0.py    # Main program file
 ├── translation.json      # Language translation configuration
 ├── config.json           # Program configuration (auto-generated)
 ├── history.json          # Operation history (auto-generated)
@@ -502,10 +509,17 @@ MIT License © 2025 QU QI
 ### Author
 
 **Author:** QU QI  
-**Version:** MHtoolX v2.2.2  
-**Release Date:** 20251108
+**Version:** MHtoolX v2.3.0  
+**Release Date:** 20251206
 
 ### Update Log
+
+#### v2.3.0 Major Updates (Bug Fixes & Feature Enhancement):
+
+  - **Spelling Correction**: Fixed a typo in the function menu where the "language" command was misspelled as "languange"
+  - **Easter Egg Feature**: Added a hidden command "truth" that displays the binary philosophical answer "101010"
+  - **Translation Optimization**: In function 25 (calculate triangle area), the precision prompt for the three-sides calculation mode now uses the dedicated translation key "25_acc_recommendation" for more accurate translations
+  - **Image Saving Configuration Fix**: Fixed an issue where selecting to disable image saving during first launch wrote to the wrong configuration file (corrected from writing to `picture_choice.json` to writing to `config.json`)
 
 #### v2.2.2 Major Updates (Bug Fix):
 
@@ -535,6 +549,5 @@ MIT License © 2025 QU QI
 
 #### v2.0.0 Major Updates:
 
-  - **Multi-language Support**: Added comprehensive English translation system
-  - **Language Switching**: Real-time language switching without restart
-
+  - **Multilingual Support**: Added complete English translation system
+  - **Language Switching**: Real-time language switching without restarting the program
