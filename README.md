@@ -1,4 +1,4 @@
-# MHtoolX v2.3.0 / 多功能交互式数学工具
+# MHtoolX v2.4.0 / 多功能交互式数学工具
 
 [English](#english) | [中文](#chinese)
 
@@ -8,7 +8,7 @@
 
 ### 项目简介
 
-MHtoolX v2.3.0 是一个基于 Python 的命令行交互式数学计算工具，支持34+种数学功能，涵盖从基础算术到高级数学模型的广泛领域。该工具提供 **交互式菜单导航** 与 **结果导出功能**，适合教学、科研及学习用途。
+MHtoolX v2.4.0 是一个基于 Python 的命令行交互式数学计算工具，支持35+种数学功能，涵盖从基础算术到高级数学模型的广泛领域。该工具提供 **交互式菜单导航** 与 **结果导出功能**，适合教学、科研及学习用途。
 
 ### 功能特性
 
@@ -73,6 +73,7 @@ MHtoolX v2.3.0 是一个基于 Python 的命令行交互式数学计算工具，
 
   - `10` - 绘制函数图像（一次/二次函数）
   - `12` - 绘制三角函数图像（几何法/代数法）
+  - `35` - 任意函数绘图（基于Matplotlib引擎）
 
 #### 🔤 文本与文件操作
 
@@ -115,20 +116,22 @@ sys
 fractions
 collections
 curses/msvcrt
+matplotlib
 ```
 
->     - 若运行环境不支持 `turtle`，相关图形功能会自动禁用
+>     - 若运行环境不支持 `turtle`，相关图形功能会自动禁用。
+>     - `matplotlib` 为功能35的必需依赖，若未安装，使用该功能时会提示 `pip install matplotlib`。
 
 ### 使用方法
 
 #### 1️⃣ 下载程序
 
-下载 `MHtoolX-v2.3.0.py` 和 `translation.json` 文件
+下载 `MHtoolX-v2.4.0.py` 和 `translation.json` 文件
 
 #### 2️⃣ 运行程序
 
 ```bash
-python MHtoolX-v2.3.0.py
+python MHtoolX-v2.4.0.py
 ```
 
 #### 3️⃣ 使用交互命令
@@ -157,40 +160,22 @@ python MHtoolX-v2.3.0.py
 
 ### 使用示例
 
-#### 计算圆周率（蒙特卡洛法）
+#### 绘制任意函数图像（功能35）
 
 ```
-请输入指令: 3
-请选择算法（莱布尼茨级数法输1，几何法输2，蒙特卡洛法输3，拉马努金公式法输4）3
-请输入取点数量: 100000
-是否显示计算进度（1为是，2为否）1
-计算中: 100%
-圆周率约为 3.14184
-```
-
-#### 矩阵转置操作
-
-```
-请输入指令: 31
-请选择方法（加法请输1，减法请输2，乘法请输3，转置请输4）4
-请输入所要计算矩阵的行数: 2
-请输入所要计算矩阵的列数: 3
-现在开始设置第1个矩阵:
-现在为第1行
-请依次输入方阵中的元素(从左往右): 1
-请依次输入方阵中的元素(从左往右): 2
-请依次输入方阵中的元素(从左往右): 3
-1.0 2.0 3.0 
-现在为第2行
-请依次输入方阵中的元素(从左往右): 4
-请依次输入方阵中的元素(从左往右): 5
-请依次输入方阵中的元素(从左往右): 6
-1.0 2.0 3.0
-4.0 5.0 6.0 
-结果:
-1.0 4.0 
-2.0 5.0 
-3.0 6.0 
+请输入指令: 35
+您正在使用任意函数绘图功能
+请输入函数表达式，使用x作为变量(可包括常数和特定函数，输入cons可查看所有支持的科学常数，输入func可查看所有支持的函数)
+示例：x**2 + 2*x + 1, math.sin(x), math.exp(x)
+函数 f(x) = x**2
+请设定 x 最小值: -10
+请设定 x 最大值: 10
+请设定 y 最小值: 0
+请设定 y 最大值: 100
+请选择坐标轴样式(1代表十字形，2代表框形): 1
+请设定步长: 0.1
+绘制中...
+[弹窗显示 y = x**2 的函数图像]
 ```
 
 #### 计算数值导数
@@ -218,7 +203,7 @@ Language changed / 语言已更改
 
 ```
 .
-├── MHtoolX-v2.3.0.py    # 主程序文件
+├── MHtoolX-v2.4.0.py    # 主程序文件
 ├── translation.json      # 语言翻译配置
 ├── config.json           # 程序配置（自动生成）
 ├── history.json          # 操作历史（自动生成）
@@ -228,22 +213,29 @@ Language changed / 语言已更改
 
 ### 许可证
 
-MIT License © 2025 QU QI
+MIT License © 2025-2026 QU QI
 
 ### 作者
 
 **作者:** QU QI  
-**版本:** MHtoolX v2.3.0  
-**发布日期:** 20251206
+**版本:** MHtoolX v2.4.0  
+**发布日期:** 20260412
 
 ### 更新日志
 
+#### v2.4.0 主要更新 (新增功能与绘图引擎升级):
+
+  - **新增任意函数绘图功能**：添加功能35，基于Matplotlib引擎实现高性能函数图像绘制，支持自定义定义域、值域、坐标轴样式与步长。
+  - **函数解析增强**：优化 `function_calculation` 函数，增加对无穷大 (inf) 和非数字 (nan) 结果的异常处理，避免绘图引擎崩溃。
+  - **绘图配置优化**：为Matplotlib绘图引擎添加网格线默认开启选项，提升图像可读性。
+  - **菜单结构调整**：功能菜单扩展至5页以容纳新功能。
+
 #### v2.3.0 主要更新 (错误修复与功能完善):
 
-  - **拼写错误修复**: 修正了功能菜单中 "language" 命令的拼写错误（从 "languange" 修正为 "language"）
-  - **彩蛋功能**: 新增隐藏命令 "truth"，输入后显示二进制哲学答案 "101010"
-  - **翻译优化**: 功能25（计算任意三角形面积）中，三边计算模式的精度提示现在使用专门的翻译键 "25_acc_recommendation"，提供更准确的翻译
-  - **图像保存配置修复**: 修复了首次启动时选择禁用图像保存功能时写入错误配置文件的问题（从写入 `picture_choice.json` 修正为写入 `config.json`）
+  - **拼写错误修复**：修正了功能菜单中 "language" 命令的拼写错误（从 "languange" 修正为 "language"）。
+  - **彩蛋功能**：新增隐藏命令 "truth"，输入后显示二进制哲学答案 "101010"。
+  - **翻译优化**：功能25（计算任意三角形面积）中，三边计算模式的精度提示现在使用专门的翻译键 "25_acc_recommendation"，提供更准确的翻译。
+  - **图像保存配置修复**：修复了首次启动时选择禁用图像保存功能时写入错误配置文件的问题（从写入 `picture_choice.json` 修正为写入 `config.json`）。
 
 #### v2.2.2 主要更新 (错误修复):
 
@@ -256,25 +248,25 @@ MIT License © 2025 QU QI
 
 #### v2.2.0 主要更新：
 
-  - **新增数值导数计算功能**：添加功能34，使用中心差分法计算任意函数的数值导数
-  - **微积分工具完善**：与数值积分功能形成完整的微积分工具集
+  - **新增数值导数计算功能**：添加功能34，使用中心差分法计算任意函数的数值导数。
+  - **微积分工具完善**：与数值积分功能形成完整的微积分工具集。
 
 #### v2.1.1 主要更新：
 
-  - **跨平台计时器**：使用 `curses` 和 `msvcrt` 模块替代 `keyboard`，支持Linux、macOS和Windows
-  - **语言切换优化**：修改语言后无需重启程序，菜单即时刷新
-  - **翻译改进**：修复了翻译键的格式问题，提升多语言体验
+  - **跨平台计时器**：使用 `curses` 和 `msvcrt` 模块替代 `keyboard`，支持Linux、macOS和Windows。
+  - **语言切换优化**：修改语言后无需重启程序，菜单即时刷新。
+  - **翻译改进**：修复了翻译键的格式问题，提升多语言体验。
 
 #### v2.1.0 主要更新：
 
-  - **矩阵转置功能**：在功能31中新增矩阵转置运算
-  - **语言切换优化**：修改语言后自动提示重启程序
-  - **翻译更新**：同步更新了中英文翻译文件
+  - **矩阵转置功能**：在功能31中新增矩阵转置运算。
+  - **语言切换优化**：修改语言后自动提示重启程序。
+  - **翻译更新**：同步更新了中英文翻译文件。
 
 #### v2.0.0 主要更新：
 
-  - **多语言支持**：添加完整的英文翻译系统
-  - **语言切换**：无需重启即可实时切换语言
+  - **多语言支持**：添加完整的英文翻译系统。
+  - **语言切换**：无需重启即可实时切换语言。
 
 -----
 
@@ -284,7 +276,7 @@ MIT License © 2025 QU QI
 
 ### Project Introduction
 
-MHtoolX v2.3.0 is a comprehensive Python-based command-line interactive mathematical calculation tool supporting 34+ mathematical functions, covering a wide range from basic arithmetic to advanced mathematical models. The tool provides **interactive menu navigation** and **result export functionality**, suitable for teaching, research, and learning purposes.
+MHtoolX v2.4.0 is a comprehensive Python-based command-line interactive mathematical calculation tool supporting 35+ mathematical functions, covering a wide range from basic arithmetic to advanced mathematical models. The tool provides **interactive menu navigation** and **result export functionality**, suitable for teaching, research, and learning purposes.
 
 ### Features
 
@@ -349,6 +341,7 @@ MHtoolX v2.3.0 is a comprehensive Python-based command-line interactive mathemat
 
   - `10` - Draw function graphs (linear/quadratic)
   - `12` - Draw trigonometric function graphs (geometric/algebraic method)
+  - `35` - Plot arbitrary function (Powered by Matplotlib engine)
 
 #### 🔤 Text & File Operations
 
@@ -391,20 +384,22 @@ sys
 fractions
 collections
 curses/msvcrt
+matplotlib
 ```
 
->     - If the runtime environment doesn't support `turtle`, related graphics functions will be automatically disabled
+>     - If the runtime environment doesn't support `turtle`, related graphics functions will be automatically disabled.
+>     - `matplotlib` is a required dependency for function 35. If not installed, the program will prompt you to run `pip install matplotlib` when using this feature.
 
 ### Usage
 
 #### 1️⃣ Download Program
 
-Download `MHtoolX-v2.3.0.py` and `translation.json` files
+Download `MHtoolX-v2.4.0.py` and `translation.json` files
 
 #### 2️⃣ Run Program
 
 ```bash
-python MHtoolX-v2.3.0.py
+python MHtoolX-v2.4.0.py
 ```
 
 #### 3️⃣ Use Interactive Commands
@@ -433,40 +428,22 @@ The program automatically generates the following configuration files in the run
 
 ### Examples
 
-#### Calculate Pi (Monte Carlo Method)
+#### Plot Arbitrary Function (Function 35)
 
 ```
-Enter command: 3
-Please select method (1 for Leibniz series, 2 for geometric method, 3 for Monte Carlo, 4 for Ramanujan formula) 3
-Please enter number of points: 100000
-Show calculation progress? (1 for yes, 2 for no) 1
-Calculating: 100%
-Pi is approximately 3.14184
-```
-
-#### Matrix Transposition
-
-```
-Enter command: 31
-Enter 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for transposition: 4
-Please enter number of rows: 2
-Please enter number of columns: 3
-Now setting up matrix 1:
-Now for row 1
-Please enter matrix elements (left to right): 1
-Please enter matrix elements (left to right): 2
-Please enter matrix elements (left to right): 3
-1.0 2.0 3.0 
-Now for row 2
-Please enter matrix elements (left to right): 4
-Please enter matrix elements (left to right): 5
-Please enter matrix elements (left to right): 6
-1.0 2.0 3.0
-4.0 5.0 6.0 
-Result:
-1.0 4.0 
-2.0 5.0 
-3.0 6.0 
+Enter command: 35
+You are using Plot arbitrary function function
+Please enter function expression using x as variable (can include constants and specific functions, enter 'cons' to view supported constants, 'func' to view supported functions)
+Example: x**2 + 2*x + 1, math.sin(x), math.exp(x)
+Function f(x) = x**2
+Set x-axis minimum: -10
+Set x-axis maximum: 10
+Set y-axis minimum: 0
+Set y-axis maximum: 100
+Select axes style (1 for cross, 2 for box): 1
+Set step size: 0.1
+Drawing...
+[A window pops up showing the graph of y = x**2]
 ```
 
 #### Compute Numerical Derivatives
@@ -494,7 +471,7 @@ Language changed / 语言已更改
 
 ```
 .
-├── MHtoolX-v2.3.0.py    # Main program file
+├── MHtoolX-v2.4.0.py    # Main program file
 ├── translation.json      # Language translation configuration
 ├── config.json           # Program configuration (auto-generated)
 ├── history.json          # Operation history (auto-generated)
@@ -504,22 +481,29 @@ Language changed / 语言已更改
 
 ### License
 
-MIT License © 2025 QU QI
+MIT License © 2025-2026 QU QI
 
 ### Author
 
 **Author:** QU QI  
-**Version:** MHtoolX v2.3.0  
-**Release Date:** 20251206
+**Version:** MHtoolX v2.4.0  
+**Release Date:** 20260412
 
 ### Update Log
 
+#### v2.4.0 Major Updates (New Feature & Graphics Engine Upgrade):
+
+  - **New Arbitrary Function Plotting**: Added Function 35, implementing high-performance function graph drawing based on the Matplotlib engine. Supports custom domain, range, axis styles, and step size.
+  - **Enhanced Function Parsing**: Optimized the `function_calculation` function by adding exception handling for infinite (inf) and non-numeric (nan) results to prevent crashes in the plotting engine.
+  - **Plotting Configuration Optimization**: Enabled the default grid line option for the Matplotlib plotting engine to improve graph readability.
+  - **Menu Structure Adjustment**: Expanded the function menu to 5 pages to accommodate the new feature.
+
 #### v2.3.0 Major Updates (Bug Fixes & Feature Enhancement):
 
-  - **Spelling Correction**: Fixed a typo in the function menu where the "language" command was misspelled as "languange"
-  - **Easter Egg Feature**: Added a hidden command "truth" that displays the binary philosophical answer "101010"
-  - **Translation Optimization**: In function 25 (calculate triangle area), the precision prompt for the three-sides calculation mode now uses the dedicated translation key "25_acc_recommendation" for more accurate translations
-  - **Image Saving Configuration Fix**: Fixed an issue where selecting to disable image saving during first launch wrote to the wrong configuration file (corrected from writing to `picture_choice.json` to writing to `config.json`)
+  - **Spelling Correction**: Fixed a typo in the function menu where the "language" command was misspelled as "languange".
+  - **Easter Egg Feature**: Added a hidden command "truth" that displays the binary philosophical answer "101010".
+  - **Translation Optimization**: In function 25 (calculate triangle area), the precision prompt for the three-sides calculation mode now uses the dedicated translation key "25_acc_recommendation" for more accurate translations.
+  - **Image Saving Configuration Fix**: Fixed an issue where selecting to disable image saving during first launch wrote to the wrong configuration file (corrected from writing to `picture_choice.json` to writing to `config.json`).
 
 #### v2.2.2 Major Updates (Bug Fix):
 
@@ -532,22 +516,22 @@ MIT License © 2025 QU QI
 
 #### v2.2.0 Major Updates:
 
-  - **New Numerical Derivative Calculation**: Added function 34 for computing numerical derivatives of arbitrary functions using central difference method
-  - **Calculus Toolkit Enhancement**: Forms a complete calculus toolkit together with numerical integration function
+  - **New Numerical Derivative Calculation**: Added function 34 for computing numerical derivatives of arbitrary functions using central difference method.
+  - **Calculus Toolkit Enhancement**: Forms a complete calculus toolkit together with numerical integration function.
 
 #### v2.1.1 Major Updates:
 
-  - **Cross-platform Timer**: Replaced `keyboard` with `curses` and `msvcrt` modules, supporting Linux, macOS and Windows
-  - **Language Switching Optimization**: Language changes take effect immediately without program restart
-  - **Translation Improvements**: Fixed translation key formatting issues, enhanced multilingual experience
+  - **Cross-platform Timer**: Replaced `keyboard` with `curses` and `msvcrt` modules, supporting Linux, macOS and Windows.
+  - **Language Switching Optimization**: Language changes take effect immediately without program restart.
+  - **Translation Improvements**: Fixed translation key formatting issues, enhanced multilingual experience.
 
 #### v2.1.0 Major Updates:
 
-  - **Matrix Transposition**: Added matrix transposition operation in function 31
-  - **Language Switching Optimization**: Automatic restart prompt after language change
-  - **Translation Updates**: Synchronized Chinese and English translation files
+  - **Matrix Transposition**: Added matrix transposition operation in function 31.
+  - **Language Switching Optimization**: Automatic restart prompt after language change.
+  - **Translation Updates**: Synchronized Chinese and English translation files.
 
 #### v2.0.0 Major Updates:
 
-  - **Multilingual Support**: Added complete English translation system
-  - **Language Switching**: Real-time language switching without restarting the program
+  - **Multilingual Support**: Added complete English translation system.
+  - **Language Switching**: Real-time language switching without restarting the program.
