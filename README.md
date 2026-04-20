@@ -1,4 +1,4 @@
-# MHtoolX v2.5.1 / 多功能交互式数学工具
+# MHtoolX v2.6.0 / 多功能交互式数学工具
 
 [English](#english) | [中文](#chinese)
 
@@ -8,7 +8,7 @@
 
 ### 项目简介
 
-MHtoolX v2.5.1 是一个基于 Python 的命令行交互式数学计算工具，支持 **36+** 种数学功能，涵盖从基础算术到高级数学模型的广泛领域。该工具提供 **交互式菜单导航** 与 **结果导出功能**，适合教学、科研及学习用途。
+MHtoolX v2.6.0 是一个基于 Python 的命令行交互式数学计算工具，支持 **36+** 种数学功能，涵盖从基础算术到高级数学模型的广泛领域。该工具提供 **交互式菜单导航** 与 **结果导出功能**，适合教学、科研及学习用途。
 
 ### 功能特性
 
@@ -47,7 +47,7 @@ MHtoolX v2.5.1 是一个基于 Python 的命令行交互式数学计算工具，
 
   - `13` - 求解二次方程
   - `28` - 计算整数系数多项式的有理数解
-  - `36` - **方程求解（基于牛顿迭代法求数值解）**
+  - `36` - **方程求解（牛顿法 / 二分法）**
 
 #### ∫ 微积分与高级数学
 
@@ -124,12 +124,12 @@ matplotlib
 
 #### 1️⃣ 下载程序
 
-下载 `MHtoolX-v2.5.1.py` 和 `translation.json` 文件
+下载 `MHtoolX-v2.6.0.py` 和 `translation.json` 文件
 
 #### 2️⃣ 运行程序
 
 ```bash
-python MHtoolX-v2.5.1.py
+python MHtoolX-v2.6.0.py
 ```
 
 #### 3️⃣ 使用交互命令
@@ -137,6 +137,11 @@ python MHtoolX-v2.5.1.py
 程序启动后会进行初始配置并自动检测版本记录。配置完成后，输入功能编号（如 `36`）或命令即可使用。
 
 ### 更新日志
+
+#### v2.6.0 主要更新 (方程求解增强):
+
+  - **方程求解新增二分法模式**：功能 36 现在提供两种算法选择（`1` = 牛顿法，`2` = 二分法）。二分法允许用户指定搜索区间，当区间内存在奇数个根时，能够稳健地逼近根值。
+  - **翻译文本补充**：更新了中英文翻译文件，添加了二分法相关的交互提示信息。
 
 #### v2.5.1 主要更新 (代码健壮性与逻辑重构):
 
@@ -149,7 +154,7 @@ python MHtoolX-v2.5.1.py
   - **新增方程求解功能**：添加功能 36，支持输入方程的左右两边表达式，通过牛顿迭代法求取指定初始值附近的数值解。
   - **版本自动登记**：新增启动时自动向 `history.json` 和 `result.json` 登记当前版本号的功能。
 
-
+-----
 
 <a id="english"></a>
 
@@ -157,7 +162,7 @@ python MHtoolX-v2.5.1.py
 
 ### Project Introduction
 
-MHtoolX v2.5.1 is a Python-based command-line interactive mathematical calculation tool supporting **36+** mathematical functions, covering a wide range from basic arithmetic to advanced mathematical models. The tool provides **interactive menu navigation** and **result export functionality**, suitable for teaching, research, and learning purposes.
+MHtoolX v2.6.0 is a Python-based command-line interactive mathematical calculation tool supporting **36+** mathematical functions, covering a wide range from basic arithmetic to advanced mathematical models. The tool provides **interactive menu navigation** and **result export functionality**, suitable for teaching, research, and learning purposes.
 
 ### Features
 
@@ -196,7 +201,7 @@ MHtoolX v2.5.1 is a Python-based command-line interactive mathematical calculati
 
   - `13` - Solve quadratic equations
   - `28` - Calculate rational solutions for integer-coefficient polynomials
-  - `36` - **Equation Solving (Numerical solution via Newton's method)**
+  - `36` - **Equation Solving (Newton's method / Bisection method)**
 
 #### ∫ Calculus & Advanced Mathematics
 
@@ -273,12 +278,12 @@ matplotlib
 
 #### 1️⃣ Download the Program
 
-Download `MHtoolX-v2.5.1.py` and `translation.json` files
+Download `MHtoolX-v2.6.0.py` and `translation.json` files
 
 #### 2️⃣ Run the Program
 
 ```bash
-python MHtoolX-v2.5.1.py
+python MHtoolX-v2.6.0.py
 ```
 
 #### 3️⃣ Use Interactive Commands
@@ -286,6 +291,11 @@ python MHtoolX-v2.5.1.py
 After startup, the program will perform initial configuration and automatically detect version records. Once configuration is complete, enter a function number (e.g., `36`) or command to use.
 
 ### Update Log
+
+#### v2.6.0 Major Updates (Equation Solving Enhancement):
+
+  - **Added bisection method for equation solving**: Function 36 now offers two algorithm choices (`1` = Newton's method, `2` = bisection method). The bisection method allows users to specify a search interval and robustly approximates a root when an odd number of roots exist in the interval.
+  - **Translation updates**: Added corresponding bilingual prompts for the bisection method in the translation file.
 
 #### v2.5.1 Major Updates (Code Robustness & Logic Refactoring):
 
