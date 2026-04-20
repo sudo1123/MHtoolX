@@ -1,14 +1,14 @@
-# MHtoolX v2.4.0 / 多功能交互式数学工具
+# MHtoolX v2.5.1 / 多功能交互式数学工具
 
 [English](#english) | [中文](#chinese)
 
-<a name="chinese"></a>
+<a id="chinese"></a>
 
 ## 中文文档
 
 ### 项目简介
 
-MHtoolX v2.4.0 是一个基于 Python 的命令行交互式数学计算工具，支持35+种数学功能，涵盖从基础算术到高级数学模型的广泛领域。该工具提供 **交互式菜单导航** 与 **结果导出功能**，适合教学、科研及学习用途。
+MHtoolX v2.5.1 是一个基于 Python 的命令行交互式数学计算工具，支持 **36+** 种数学功能，涵盖从基础算术到高级数学模型的广泛领域。该工具提供 **交互式菜单导航** 与 **结果导出功能**，适合教学、科研及学习用途。
 
 ### 功能特性
 
@@ -47,6 +47,7 @@ MHtoolX v2.4.0 是一个基于 Python 的命令行交互式数学计算工具，
 
   - `13` - 求解二次方程
   - `28` - 计算整数系数多项式的有理数解
+  - `36` - **方程求解（基于牛顿迭代法求数值解）**
 
 #### ∫ 微积分与高级数学
 
@@ -119,218 +120,99 @@ curses/msvcrt
 matplotlib
 ```
 
->     - 若运行环境不支持 `turtle`，相关图形功能会自动禁用。
->     - `matplotlib` 为功能35的必需依赖，若未安装，使用该功能时会提示 `pip install matplotlib`。
-
 ### 使用方法
 
 #### 1️⃣ 下载程序
 
-下载 `MHtoolX-v2.4.0.py` 和 `translation.json` 文件
+下载 `MHtoolX-v2.5.1.py` 和 `translation.json` 文件
 
 #### 2️⃣ 运行程序
 
 ```bash
-python MHtoolX-v2.4.0.py
+python MHtoolX-v2.5.1.py
 ```
 
 #### 3️⃣ 使用交互命令
 
-程序启动后会提示进行初始配置：
-
-  - 选择界面语言（中文/英文）
-  - 是否保存操作历史
-  - 是否启用计算结果保存功能
-  - 是否启用图像保存功能
-  - 是否启用number_saved计数功能
-
-配置完成后，输入功能编号或命令即可使用相应功能。
-
-### 数据与历史记录管理
-
-程序自动在运行目录下生成以下配置文件：
-
-| 文件名 | 功能说明 |
-|--------|-----------|
-| `result.json` | 保存历史计算结果 |
-| `history.json` | 保存用户操作记录 |
-| `number saved.json` | 已保存结果计数（可选启用） |
-| `config.json` | 程序配置设置（历史保存、结果保存、图像保存等） |
-| `translation.json` | 语言翻译字典 |
-
-### 使用示例
-
-#### 绘制任意函数图像（功能35）
-
-```
-请输入指令: 35
-您正在使用任意函数绘图功能
-请输入函数表达式，使用x作为变量(可包括常数和特定函数，输入cons可查看所有支持的科学常数，输入func可查看所有支持的函数)
-示例：x**2 + 2*x + 1, math.sin(x), math.exp(x)
-函数 f(x) = x**2
-请设定 x 最小值: -10
-请设定 x 最大值: 10
-请设定 y 最小值: 0
-请设定 y 最大值: 100
-请选择坐标轴样式(1代表十字形，2代表框形): 1
-请设定步长: 0.1
-绘制中...
-[弹窗显示 y = x**2 的函数图像]
-```
-
-#### 计算数值导数
-
-```
-请输入指令: 34
-您正在使用计算数值导数功能
-请输入函数表达式，使用x作为变量(可包括常数和特定函数，输入cons可查看所有支持的科学常数，输入func可查看所有支持的函数)
-示例：x**2 + 2*x + 1, math.sin(x), math.exp(x)
-函数 f(x) = x**2 + 2*x + 1
-请输入待求数值导数的函数在 x 轴上的求导位置: 2
-请输入您所需要的精度（10的倍数，越小越结果精确）: 1000
-f'(2)=6.000000000000003
-```
-
-#### 修改语言
-
-```
-请输入指令: language
-Select language / 选择语言 (1 for English, 2 for 中文): 1
-Language changed / 语言已更改
-```
-
-### 文件结构
-
-```
-.
-├── MHtoolX-v2.4.0.py    # 主程序文件
-├── translation.json      # 语言翻译配置
-├── config.json           # 程序配置（自动生成）
-├── history.json          # 操作历史（自动生成）
-├── result.json           # 计算结果（自动生成）
-└── number saved.json     # 保存计数（可选生成）
-```
-
-### 许可证
-
-MIT License © 2025-2026 QU QI
-
-### 作者
-
-**作者:** QU QI  
-**版本:** MHtoolX v2.4.0  
-**发布日期:** 20260412
+程序启动后会进行初始配置并自动检测版本记录。配置完成后，输入功能编号（如 `36`）或命令即可使用。
 
 ### 更新日志
 
-#### v2.4.0 主要更新 (新增功能与绘图引擎升级):
+#### v2.5.1 主要更新 (代码健壮性与逻辑重构):
 
-  - **新增任意函数绘图功能**：添加功能35，基于Matplotlib引擎实现高性能函数图像绘制，支持自定义定义域、值域、坐标轴样式与步长。
-  - **函数解析增强**：优化 `function_calculation` 函数，增加对无穷大 (inf) 和非数字 (nan) 结果的异常处理，避免绘图引擎崩溃。
-  - **绘图配置优化**：为Matplotlib绘图引擎添加网格线默认开启选项，提升图像可读性。
-  - **菜单结构调整**：功能菜单扩展至5页以容纳新功能。
+  - **版本记录逻辑重构**：重新设计了 `version` 自动记录函数，采用标准的 JSON 列表操作（`append`）替代了旧版的字符串解析逻辑，彻底解决了可能导致数据文件结构损坏的问题。
+  - **图形管理优化**：引入 `reset_turtle()` 机制，在每次调用绘图功能前重置 Turtle 状态，确保多次绘图时界面的稳定。
+  - **异常处理增强**：优化了 `history` 和 `saved` 等文件操作函数，增加了对 JSON 解码错误和文件缺失的捕获，提升了程序在复杂环境下的存活率。
 
-#### v2.3.0 主要更新 (错误修复与功能完善):
+#### v2.5.0 主要更新 (新功能与自动化):
 
-  - **拼写错误修复**：修正了功能菜单中 "language" 命令的拼写错误（从 "languange" 修正为 "language"）。
-  - **彩蛋功能**：新增隐藏命令 "truth"，输入后显示二进制哲学答案 "101010"。
-  - **翻译优化**：功能25（计算任意三角形面积）中，三边计算模式的精度提示现在使用专门的翻译键 "25_acc_recommendation"，提供更准确的翻译。
-  - **图像保存配置修复**：修复了首次启动时选择禁用图像保存功能时写入错误配置文件的问题（从写入 `picture_choice.json` 修正为写入 `config.json`）。
+  - **新增方程求解功能**：添加功能 36，支持输入方程的左右两边表达式，通过牛顿迭代法求取指定初始值附近的数值解。
+  - **版本自动登记**：新增启动时自动向 `history.json` 和 `result.json` 登记当前版本号的功能。
 
-#### v2.2.2 主要更新 (错误修复):
 
-  - **正确性修复 (功能 9)**：修复了在统计功能(模式6)中，当数据包含多个众数且频率相同时（例如 [1, 1, 2, 2]），程序错误地报告"不存在众数"的问题。
 
-#### v2.2.1 主要更新 (错误修复)：
-
-  - **稳定性修复 (功能 31)**：修复了在矩阵运算（加、减、乘）后，因翻译键错误导致程序崩溃的问题。
-  - **正确性修复 (功能 9)**：修复了在统计功能中，当数据个数为奇数时，中位数无法被正确打印或保存的错误。
-
-#### v2.2.0 主要更新：
-
-  - **新增数值导数计算功能**：添加功能34，使用中心差分法计算任意函数的数值导数。
-  - **微积分工具完善**：与数值积分功能形成完整的微积分工具集。
-
-#### v2.1.1 主要更新：
-
-  - **跨平台计时器**：使用 `curses` 和 `msvcrt` 模块替代 `keyboard`，支持Linux、macOS和Windows。
-  - **语言切换优化**：修改语言后无需重启程序，菜单即时刷新。
-  - **翻译改进**：修复了翻译键的格式问题，提升多语言体验。
-
-#### v2.1.0 主要更新：
-
-  - **矩阵转置功能**：在功能31中新增矩阵转置运算。
-  - **语言切换优化**：修改语言后自动提示重启程序。
-  - **翻译更新**：同步更新了中英文翻译文件。
-
-#### v2.0.0 主要更新：
-
-  - **多语言支持**：添加完整的英文翻译系统。
-  - **语言切换**：无需重启即可实时切换语言。
-
------
-
-<a name="english"></a>
+<a id="english"></a>
 
 ## English Documentation
 
 ### Project Introduction
 
-MHtoolX v2.4.0 is a comprehensive Python-based command-line interactive mathematical calculation tool supporting 35+ mathematical functions, covering a wide range from basic arithmetic to advanced mathematical models. The tool provides **interactive menu navigation** and **result export functionality**, suitable for teaching, research, and learning purposes.
+MHtoolX v2.5.1 is a Python-based command-line interactive mathematical calculation tool supporting **36+** mathematical functions, covering a wide range from basic arithmetic to advanced mathematical models. The tool provides **interactive menu navigation** and **result export functionality**, suitable for teaching, research, and learning purposes.
 
 ### Features
 
 #### 🔢 Basic Mathematical Operations
 
-  - `2` - Calculate square root (successive approximation/Newton's method)
-  - `4` - Calculate power
-  - `5` - Arithmetic operations (addition, subtraction, multiplication, division)
+  - `2` - Calculate arithmetic square root (successive approximation / Newton's method)
+  - `4` - Calculate nth power
+  - `5` - Four arithmetic operations (addition, subtraction, multiplication, division)
   - `14` - Calculate factorial
   - `20` - Calculate permutations and combinations
 
 #### 🔍 Number Theory & Integer Operations
 
-  - `1` - Generate prime number table (normal method/sieve method)
+  - `1` - Generate prime number table (general method / Sieve of Eratosthenes)
   - `17` - Prime factorization
   - `18` - Calculate GCD and LCM
-  - `23` - Prime number check
+  - `23` - Prime number detection
   - `6` - Generate Fibonacci sequence
   - `7` - Calculate golden ratio
 
 #### 📊 Statistics & Data Analysis
 
-  - `9` - Statistical functions (average, weighted average, variance, standard deviation, median, mode)
-  - `11` - Exam score analysis
+  - `9` - Statistical functions (mean, weighted mean, variance, standard deviation, median, mode)
+  - `11` - Exam score data processing
 
 #### 📐 Geometry & Trigonometry
 
-  - `15` - Polar coordinates conversion
-  - `24` - Calculate vector magnitude
-  - `25` - Calculate triangle area
+  - `15` - Polar coordinate conversion
+  - `24` - Vector magnitude calculation
+  - `25` - Calculate area of any triangle
   - `26` - Vector dot product
-  - `21` - Calculate trigonometric values
+  - `21` - Calculate trigonometric function values
   - `22` - Radian-degree conversion
 
 #### 🧮 Algebra & Equation Solving
 
-  - `13` - Solve quadratic equation
-  - `28` - Find rational roots of polynomial
+  - `13` - Solve quadratic equations
+  - `28` - Calculate rational solutions for integer-coefficient polynomials
+  - `36` - **Equation Solving (Numerical solution via Newton's method)**
 
 #### ∫ Calculus & Advanced Mathematics
 
-  - `29` - Numerical integration
-  - `33` - Logarithm calculation (natural and general logarithms using Taylor expansion)
-  - `34` - Compute numerical derivatives
+  - `29` - Calculate numerical integration
+  - `33` - Logarithm calculation (natural logarithm and general logarithm using Taylor expansion)
+  - `34` - Calculate numerical derivative
 
-#### 📈 Matrix & Linear Algebra
+#### 📈 Matrices & Linear Algebra
 
-  - `30` - Calculate 3x3 matrix determinant
-  - `31` - Matrix operations (addition, subtraction, multiplication, transposition)
+  - `30` - Calculate determinant of 3x3 matrix
+  - `31` - Matrix operations (addition, subtraction, multiplication, transpose)
 
-#### 💰 Finance & Mathematical Models
+#### 💰 Financial & Mathematical Models
 
-  - `32` - Mathematical models (compound interest, half-life, population growth)
-  - `8` - Change making (greedy algorithm)
+  - `32` - Common mathematical model calculations (compound interest calculation, half-life calculation, population growth model)
+  - `8` - Change-making program (greedy algorithm)
 
 #### 🔄 Base & Encoding Conversion
 
@@ -339,38 +221,38 @@ MHtoolX v2.4.0 is a comprehensive Python-based command-line interactive mathemat
 
 #### 🎨 Graphing Functions
 
-  - `10` - Draw function graphs (linear/quadratic)
-  - `12` - Draw trigonometric function graphs (geometric/algebraic method)
-  - `35` - Plot arbitrary function (Powered by Matplotlib engine)
+  - `10` - Plot function graphs (linear/quadratic functions)
+  - `12` - Plot trigonometric function graphs (geometric/algebraic method)
+  - `35` - Arbitrary function plotting (based on Matplotlib engine)
 
 #### 🔤 Text & File Operations
 
   - `16` - String frequency statistics & positioning
 
-#### ⚙️ System & Utility Commands
+#### ⚙️ System & Tool Commands
 
-  - `timer` - Start timer 
+  - `timer` - Start timer
   - `version` - View version
   - `cs` - Clear screen
-  - `menu` - View paged menu
-  - `amenu` - View all functions list
+  - `menu` - View paginated menu
+  - `amenu` - View all function list
   - `language` - Change language
   - `exit` - Exit program
 
 #### 💾 Data Management Commands
 
-  - `rr` - View calculation history results
-  - `er` - Export calculation history
-  - `cr` - Clear calculation history
+  - `rr` - View historical calculation results
+  - `er` - Export historical calculation results
+  - `cr` - Clear historical calculation results
   - `rh` - View operation history
   - `eh` - Export operation history
   - `ch` - Clear operation history
 
-### Requirements
+### Runtime Environment
 
 **Python Version:** ≥ 3.8
 
-**Required Modules**:
+**Dependency Modules:**
 
 ```python
 turtle
@@ -387,151 +269,31 @@ curses/msvcrt
 matplotlib
 ```
 
->     - If the runtime environment doesn't support `turtle`, related graphics functions will be automatically disabled.
->     - `matplotlib` is a required dependency for function 35. If not installed, the program will prompt you to run `pip install matplotlib` when using this feature.
-
 ### Usage
 
-#### 1️⃣ Download Program
+#### 1️⃣ Download the Program
 
-Download `MHtoolX-v2.4.0.py` and `translation.json` files
+Download `MHtoolX-v2.5.1.py` and `translation.json` files
 
-#### 2️⃣ Run Program
+#### 2️⃣ Run the Program
 
 ```bash
-python MHtoolX-v2.4.0.py
+python MHtoolX-v2.5.1.py
 ```
 
 #### 3️⃣ Use Interactive Commands
 
-After startup, the program will prompt for initial configuration:
-
-  - Select interface language (Chinese/English)
-  - Whether to save operation history
-  - Whether to enable result saving
-  - Whether to enable image saving
-  - Whether to enable number_saved counting function
-
-After configuration, enter function numbers or commands to use corresponding functions.
-
-### Data & History Management
-
-The program automatically generates the following configuration files in the running directory:
-
-| File Name | Function Description |
-|-----------|---------------------|
-| `result.json` | Saves calculation history results |
-| `history.json` | Saves user operation records |
-| `number saved.json` | Saved results count (optional) |
-| `config.json` | Program configuration settings (history saving, result saving, image saving, etc.) |
-| `translation.json` | Language translation dictionary |
-
-### Examples
-
-#### Plot Arbitrary Function (Function 35)
-
-```
-Enter command: 35
-You are using Plot arbitrary function function
-Please enter function expression using x as variable (can include constants and specific functions, enter 'cons' to view supported constants, 'func' to view supported functions)
-Example: x**2 + 2*x + 1, math.sin(x), math.exp(x)
-Function f(x) = x**2
-Set x-axis minimum: -10
-Set x-axis maximum: 10
-Set y-axis minimum: 0
-Set y-axis maximum: 100
-Select axes style (1 for cross, 2 for box): 1
-Set step size: 0.1
-Drawing...
-[A window pops up showing the graph of y = x**2]
-```
-
-#### Compute Numerical Derivatives
-
-```
-Enter command: 34
-You are using Computing numerical derivatives function
-Please enter function expression using x as variable (can include constants and specific functions, enter 'cons' to view supported constants, 'func' to view supported functions)
-Example: x**2 + 2*x + 1, math.sin(x), math.exp(x)
-Function f(x) = x**2 + 2*x + 1
-Please enter the differentiation point on the x-axis for the function whose numerical derivative is to be calculated: 2
-Please enter the required precision (multiple of 10, smaller values yield more accurate results): 1000
-f'(2)=6.000000000000003
-```
-
-#### Change Language
-
-```
-Enter command: language
-Select language / 选择语言 (1 for English, 2 for 中文): 1
-Language changed / 语言已更改
-```
-
-### File Structure
-
-```
-.
-├── MHtoolX-v2.4.0.py    # Main program file
-├── translation.json      # Language translation configuration
-├── config.json           # Program configuration (auto-generated)
-├── history.json          # Operation history (auto-generated)
-├── result.json           # Calculation results (auto-generated)
-└── number saved.json     # Save count (optional)
-```
-
-### License
-
-MIT License © 2025-2026 QU QI
-
-### Author
-
-**Author:** QU QI  
-**Version:** MHtoolX v2.4.0  
-**Release Date:** 20260412
+After startup, the program will perform initial configuration and automatically detect version records. Once configuration is complete, enter a function number (e.g., `36`) or command to use.
 
 ### Update Log
 
-#### v2.4.0 Major Updates (New Feature & Graphics Engine Upgrade):
+#### v2.5.1 Major Updates (Code Robustness & Logic Refactoring):
 
-  - **New Arbitrary Function Plotting**: Added Function 35, implementing high-performance function graph drawing based on the Matplotlib engine. Supports custom domain, range, axis styles, and step size.
-  - **Enhanced Function Parsing**: Optimized the `function_calculation` function by adding exception handling for infinite (inf) and non-numeric (nan) results to prevent crashes in the plotting engine.
-  - **Plotting Configuration Optimization**: Enabled the default grid line option for the Matplotlib plotting engine to improve graph readability.
-  - **Menu Structure Adjustment**: Expanded the function menu to 5 pages to accommodate the new feature.
+  - **Version Tracking Refactor**: Redesigned the `version` auto-recording function using standard JSON list operations (`append`) instead of the old string parsing logic, thoroughly resolving issues that could lead to data file structure corruption.
+  - **Graphics Optimization**: Introduced `reset_turtle()` mechanism to reset Turtle state before each plotting function call, ensuring interface stability during multiple plots.
+  - **Enhanced Exception Handling**: Optimized `history` and `saved` file operation functions, adding catches for JSON decoding errors and missing files, improving program survivability in complex environments.
 
-#### v2.3.0 Major Updates (Bug Fixes & Feature Enhancement):
+#### v2.5.0 Major Updates (New Features & Automation):
 
-  - **Spelling Correction**: Fixed a typo in the function menu where the "language" command was misspelled as "languange".
-  - **Easter Egg Feature**: Added a hidden command "truth" that displays the binary philosophical answer "101010".
-  - **Translation Optimization**: In function 25 (calculate triangle area), the precision prompt for the three-sides calculation mode now uses the dedicated translation key "25_acc_recommendation" for more accurate translations.
-  - **Image Saving Configuration Fix**: Fixed an issue where selecting to disable image saving during first launch wrote to the wrong configuration file (corrected from writing to `picture_choice.json` to writing to `config.json`).
-
-#### v2.2.2 Major Updates (Bug Fix):
-
-  - **Correctness Fix (Function 9)**: Fixed a bug in Statistics (mode 6) where the program incorrectly reported "No mode exists" for datasets with multiple modes of the same frequency (e.g., [1, 1, 2, 2]).
-
-#### v2.2.1 Major Updates (Bug Fix):
-
-  - **Stability Fix (Function 31)**: Fixed a crash in Matrix Operations (add, subtract, multiply) caused by a translation key error when printing results.
-  - **Correctness Fix (Function 9)**: Fixed a bug in Statistics where the median would not print or save correctly for odd-numbered datasets.
-
-#### v2.2.0 Major Updates:
-
-  - **New Numerical Derivative Calculation**: Added function 34 for computing numerical derivatives of arbitrary functions using central difference method.
-  - **Calculus Toolkit Enhancement**: Forms a complete calculus toolkit together with numerical integration function.
-
-#### v2.1.1 Major Updates:
-
-  - **Cross-platform Timer**: Replaced `keyboard` with `curses` and `msvcrt` modules, supporting Linux, macOS and Windows.
-  - **Language Switching Optimization**: Language changes take effect immediately without program restart.
-  - **Translation Improvements**: Fixed translation key formatting issues, enhanced multilingual experience.
-
-#### v2.1.0 Major Updates:
-
-  - **Matrix Transposition**: Added matrix transposition operation in function 31.
-  - **Language Switching Optimization**: Automatic restart prompt after language change.
-  - **Translation Updates**: Synchronized Chinese and English translation files.
-
-#### v2.0.0 Major Updates:
-
-  - **Multilingual Support**: Added complete English translation system.
-  - **Language Switching**: Real-time language switching without restarting the program.
+  - **New Equation Solver**: Added Function 36, supporting input of left and right side expressions of an equation to find numerical solutions near a specified initial value using Newton's method.
+  - **Auto Version Logging**: Added functionality to automatically log the current version number to `history.json` and `result.json` upon startup.
